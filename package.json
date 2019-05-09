@@ -16,7 +16,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false --testResultsProcessor ./node_modules/jest-junit-reporter",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prestart:api": "node tools/createMockData.js",
+    "start:api": "node tools/apiServer.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.14.2"
   }
 }
