@@ -17,6 +17,6 @@ steps:
 
   - script: |
       npm install
-      npm test:ci
+      npm run test:ci
       npm run build
     displayName: 'npm install, test and build'
