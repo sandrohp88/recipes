@@ -15,7 +15,11 @@ const App = () => {
         <RecipeList recipes={recipes} setRecipeDetails={setRecipeDetails} />
       </Grid>
       <Grid item xs={6}>
-        <RecipeDetails recipeDetails={recipeDetails} />
+      {/* Render only if there is recipeDetails selected */}
+        {Object.entries(recipeDetails).length > 0 &&
+          recipeDetails.constructor === Object && (
+            <RecipeDetails recipeDetails={recipeDetails} />
+          )}
       </Grid>
     </Grid>
   )
