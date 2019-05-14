@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '4px'
   },
   title: {
-    position: 'relative',
+    position:'relative',
     bottom: '3.4rem',
     padding: theme.spacing(1.5),
     fontWeight: '500',
@@ -23,9 +23,7 @@ const useStyles = makeStyles(theme => ({
     width: '70%',
     textAlign: 'center',
     backgroundImage: 'linear-gradient(to right bottom, #FBDB89, #F48982)',
-    '@media (min-width:600px)': {
-      fontSize: '1.5rem'
-    }
+   
   }
 }))
 
