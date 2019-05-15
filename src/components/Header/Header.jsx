@@ -1,23 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import SearchIcon from '@material-ui/icons/Search'
+import Paper from '@material-ui/core/Paper'
 import InputBase from '@material-ui/core/InputBase'
 import Fab from '@material-ui/core/Fab'
 import { fade } from '@material-ui/core/styles/colorManipulator'
 import logo from '../../img/logo.png'
+import { getRecipes } from '../../api/fork2foodApi'
+
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: '#F9F5F3',
+    backgroundColor: '#F9F5F3'
   },
   logo: {
     height: '2.5rem',
     display: 'block'
   },
-  appBar: {
-  },
+  appBar: {},
   toolbar: {
     display: 'flex',
     backgroundColor: '#F9F5F3',
@@ -70,19 +72,28 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function Header() {
-  const classes = useStyles()
+function Header({ setRecipes }) {
+  const [query, setQuery] = useState('pizza')
 
+  const classes = useStyles()
+  // Events handlers
+  const handleSearchChange = event => {
+    setQuery(event.target.value)
+  }
+  const handleMakeSearch = async () => {
+    const recipes = await getRecipes(query)
+    setRecipes(recipes)
+  }
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default" className={classes.appBar}
-      elevation={0}
+    <Paper className={classes.root}>
+      <AppBar
+        position="static"
+        color="default"
+        className={classes.appBar}
+        elevation={0}
       >
         <Toolbar className={classes.toolbar}>
           <img src={logo} alt="Logo" className={classes.logo} />
-          {/* <Typography variant="h6" color="inherit">
-            Photos
-          </Typography> */}
           <div className={classes.search}>
             <InputBase
               placeholder="Search over 1,000,000 recipes…"
@@ -90,15 +101,21 @@ function Header() {
                 root: classes.inputRoot,
                 input: classes.inputInput
               }}
+              onChange={handleSearchChange}
+              value={query}
             />
-            <Fab variant="extended" className={classes.fab}>
+            <Fab
+              variant="extended"
+              className={classes.fab}
+              onClick={handleMakeSearch}
+            >
               <SearchIcon />
               Search
             </Fab>
           </div>
         </Toolbar>
       </AppBar>
-    </div>
+    </Paper>
   )
 }
 export default Header

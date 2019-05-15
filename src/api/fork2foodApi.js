@@ -1,8 +1,8 @@
 import { handleResponse, handleError } from './apiUtils'
 const baseUrl = 'http://localhost:3001/'
-const getRecipes = async () => {
+const getRecipes = async query => {
   try {
-    const response = await fetch(baseUrl + 'recipes')
+    const response = await fetch(`${baseUrl}recipes?title_like=${query}`)
     return handleResponse(response)
   } catch (error) {
     handleError(error)
