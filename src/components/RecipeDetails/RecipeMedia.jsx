@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/styles'
 import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles(theme => ({
   image: {
-    width: '100%',
-    height: '50rem',
-    transform: 'scale(1.04) translateY(-1px)',
+    width: '48.5vw',
+    height: '30vw',
+    // transform: 'scale(1.04) translateY(-1px)',
     transformOrigin: 'top',
     objectFit: 'cover',
     borderRadius: '4px'
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: 'linear-gradient(to right bottom, #FBDB89, #F48982)'
   },
   div: {
-    width: '100%',
+    width: '100%'
   }
 }))
 
