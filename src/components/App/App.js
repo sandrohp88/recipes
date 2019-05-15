@@ -19,12 +19,12 @@ const App = () => {
       <Grid item xs={12}>
         <Header setRecipes={setRecipes} />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={2} md={2}>
         <Paper className={classes.paper}>
           <RecipeList recipes={recipes} setRecipeDetails={setRecipeDetails} />
         </Paper>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item md={6} xs={10}>
         {/* Render only if there is recipeDetails selected */}
         {Object.entries(recipeDetails).length > 0 &&
           recipeDetails.constructor === Object && (
