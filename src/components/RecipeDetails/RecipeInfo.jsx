@@ -5,7 +5,6 @@ import { Person, Timer, Add, Remove, FavoriteBorder } from '@material-ui/icons'
 import makeStyles from '@material-ui/styles/makeStyles'
 
 const styles = makeStyles(theme => ({
-  
   fillColor: {
     color: '#F59A83'
   },
@@ -40,13 +39,22 @@ const styles = makeStyles(theme => ({
   },
   infoIcon: {
     display: 'flex'
+  },
+  grid: {
+    padding: theme.spacing(1),
+    margin: theme.spacing(0,1)
   }
 }))
 
 const RecipeInfo = ({ minutes, servings }) => {
   const classes = styles()
   return (
-    <Grid container spacing={4} justify="center" alignItems="center">
+    <Grid
+      container
+      className={classes.grid}
+      justify="center"
+      alignItems="center"
+    >
       <Grid item>
         <div className={classes.infoIcon}>
           <Timer className={`${classes.timer} ${classes.fillColor}`} />

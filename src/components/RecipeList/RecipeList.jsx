@@ -7,26 +7,27 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
-// import CircularProgress from '@material-ui/core/CircularProgress'
-// import Divider from '@material-ui/core/Divider'
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(2)
   },
-  progress: {
-    margin: theme.spacing(2),
-    height: '5.5rem',
-    width: '5.5rem',
-    color: '#F59A83',
-    transformOrigin: '44% 50%',
-    animation: 'rotate 1.5s infinite linear'
-  },
+  // progress: {
+  //   margin: theme.spacing(2),
+  //   height: '5.5rem',
+  //   width: '5.5rem',
+  //   color: '#F59A83',
+  //   transformOrigin: '44% 50%',
+  //   animation: 'rotate 1.5s infinite linear'
+  // },
   listItemText: {
     fontSize: '1.3rem',
     color: '#F59A83',
-    fontWeight: 600,
-    marginBottom: '.3rem'
+    marginBottom: '.3rem',
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'block'
+    }
   }
 }))
 

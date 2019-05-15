@@ -8,7 +8,10 @@ const styles = makeStyles(theme => ({
   grid: {
     backgroundColor: '#F2EFEE',
     padding: theme.spacing(2),
-    margin: theme.spacing(2, 0)
+    margin: theme.spacing(2, 0),
+    // [theme.breakpoints.down('xs')]: {
+    //   padding: 0
+    // }
   },
   shoppingCart: {
     border: 'none',
@@ -36,6 +39,12 @@ const styles = makeStyles(theme => ({
     },
     padding: theme.spacing(1, 2),
     margin: theme.spacing(2, 0)
+  },
+  typography: {
+    display: 'block',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none'
+    }
   }
 }))
 
@@ -73,7 +82,9 @@ const RecipeIngredients = ({ ingredients }) => {
       <Grid item xs={6}>
         <Button className={classes.button}>
           <ShoppingCart className={classes.shoppingCart} />
-          <Typography variant="caption">Add to shopping list</Typography>
+          <Typography className={classes.typography} variant="caption">
+            Add to shopping list
+          </Typography>
         </Button>
       </Grid>
     </Grid>
