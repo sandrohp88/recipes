@@ -6,7 +6,7 @@ import { Grid, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 const styles = makeStyles(theme => ({
   paper: {
-    width: '100%',
+    width: '100%'
   }
 }))
 
@@ -17,9 +17,7 @@ const App = () => {
   return (
     <Grid container spacing={1}>
       <Grid item xs={12}>
-        <Paper className={classes.paper}>
-          <Header setRecipes={setRecipes} />
-        </Paper>
+        <Header setRecipes={setRecipes} />
       </Grid>
       <Grid item xs={3}>
         <Paper className={classes.paper}>
