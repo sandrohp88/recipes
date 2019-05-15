@@ -5,10 +5,7 @@ import { Person, Timer, Add, Remove, FavoriteBorder } from '@material-ui/icons'
 import makeStyles from '@material-ui/styles/makeStyles'
 
 const styles = makeStyles(theme => ({
-  paper: {
-    width: '100%',
-    backgroundColor: '#F9F5F3'
-  },
+  
   fillColor: {
     color: '#F59A83'
   },

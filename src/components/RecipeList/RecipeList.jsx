@@ -1,10 +1,10 @@
 import React from 'react'
-import {getRecipeDetails } from '../../api/fork2foodApi'
+import PropTypes from 'prop-types'
+import { getRecipeDetails } from '../../api/fork2foodApi'
 import { makeStyles } from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import Paper from '@material-ui/core/Paper'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
 // import CircularProgress from '@material-ui/core/CircularProgress'
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export const RecipeList = ({ recipes = [], setRecipeDetails }) => {
+export const RecipeList = ({ recipes, setRecipeDetails }) => {
   const handleClick = async (recipe_id, event) => {
     const response = await getRecipeDetails(recipe_id)
     if (response.length > 0) {
@@ -40,29 +40,30 @@ export const RecipeList = ({ recipes = [], setRecipeDetails }) => {
 
   const classes = useStyles()
   return (
-    <Paper className={classes.root}>
-      <List dense>
-        {recipes.map(({ recipe_id, image_url, title, publisher }) => (
-          <React.Fragment key={recipe_id}>
-            <ListItem button onClick={() => handleClick(recipe_id)}>
-              <ListItemAvatar>
-                <Avatar alt={title} src={image_url} />
-              </ListItemAvatar>
-              <ListItemText
-                className={classes.listItemText}
-                primary={title
-                  .split(' ')
-                  .splice(0, 2)
-                  .join(' ')
-                  .toUpperCase()}
-                secondary={publisher}
-              />
-            </ListItem>
-          </React.Fragment>
-        ))}
-      </List>
-    </Paper>
+    <List dense>
+      {recipes.map(({ recipe_id, image_url, title, publisher }) => (
+        <React.Fragment key={recipe_id}>
+          <ListItem button onClick={() => handleClick(recipe_id)}>
+            <ListItemAvatar>
+              <Avatar alt={title} src={image_url} />
+            </ListItemAvatar>
+            <ListItemText
+              className={classes.listItemText}
+              primary={title
+                .split(' ')
+                .splice(0, 2)
+                .join(' ')
+                .toUpperCase()}
+              secondary={publisher}
+            />
+          </ListItem>
+        </React.Fragment>
+      ))}
+    </List>
   )
 }
-
+RecipeList.propTypes = {
+  setRecipeDetails: PropTypes.func.isRequired,
+  recipes: PropTypes.array.isRequired
+}
 export default RecipeList

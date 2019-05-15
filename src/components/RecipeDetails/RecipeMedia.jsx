@@ -4,15 +4,15 @@ import { makeStyles } from '@material-ui/styles'
 import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles(theme => ({
   image: {
-    height: '100',
     width: '100%',
-    // transform: 'scale(1.04) translateY(-1px)',
+    height: '50rem',
+    transform: 'scale(1.04) translateY(-1px)',
     transformOrigin: 'top',
     objectFit: 'cover',
     borderRadius: '4px'
   },
   title: {
-    position:'relative',
+    position: 'relative',
     bottom: '3.4rem',
     padding: theme.spacing(1.5),
     fontWeight: '500',
@@ -22,18 +22,20 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'uppercase',
     width: '70%',
     textAlign: 'center',
-    backgroundImage: 'linear-gradient(to right bottom, #FBDB89, #F48982)',
-   
+    backgroundImage: 'linear-gradient(to right bottom, #FBDB89, #F48982)'
+  },
+  div: {
+    width: '100%',
   }
 }))
 
 const RecipeMedia = ({ imageUrl, title }) => {
   const classes = useStyles()
   return (
-    <>
+    <div className={classes.div}>
       <img src={imageUrl} alt={title} className={classes.image} />
       <Typography className={classes.title}>{title}</Typography>
-    </>
+    </div>
   )
 }
 
