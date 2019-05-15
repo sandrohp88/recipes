@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     bottom: '3.4rem',
     padding: theme.spacing(1.5),
-    fontWeight: '500',
     left: '50%',
     transform: 'translate(-50%, 20%) skewY(-6deg)',
     color: '#fff',
@@ -34,7 +33,7 @@ const RecipeMedia = ({ imageUrl, title }) => {
   return (
     <div className={classes.div}>
       <img src={imageUrl} alt={title} className={classes.image} />
-      <Typography className={classes.title}>{title}</Typography>
+      <Typography variant="subtitle2" className={classes.title}>{title}</Typography>
     </div>
   )
 }
