@@ -33,9 +33,9 @@ const useStyles = makeStyles(theme => ({
 
 export const RecipeList = ({ recipes, setRecipeDetails }) => {
   const handleClick = async (recipe_id, event) => {
-    const response = await getRecipeDetails(recipe_id)
-    if (response.length > 0) {
-      setRecipeDetails(response[0].recipe)
+    const { recipe } = await getRecipeDetails(recipe_id)
+    if (recipe.length > 0) {
+      setRecipeDetails(recipe)
     }
   }
 
