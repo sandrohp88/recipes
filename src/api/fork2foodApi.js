@@ -1,8 +1,9 @@
 import { handleResponse, handleError } from './apiUtils'
-const baseUrl = 'http://localhost:3001/'
+const searchUrl = process.env.REACT_APP_API_URL_SEARCH
+const getUrl = process.env.REACT_APP_API_URL_GET
 const getRecipes = async query => {
   try {
-    const response = await fetch(`${baseUrl}recipes?title_like=${query}`)
+    const response = await fetch(`${searchUrl}${query}`)
     return handleResponse(response)
   } catch (error) {
     handleError(error)
@@ -10,9 +11,7 @@ const getRecipes = async query => {
 }
 const getRecipeDetails = async id => {
   try {
-    const response = await fetch(
-      `${baseUrl}recipe_sources?recipe.recipe_id=${id}`
-    )
+    const response = await fetch(`${getUrl}${id}`)
     return handleResponse(response)
   } catch (error) {
     handleError(error)
