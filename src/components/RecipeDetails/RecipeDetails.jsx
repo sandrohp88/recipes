@@ -13,7 +13,7 @@ const styles = makeStyles(theme => ({
     color: '#655A56'
   }
 }))
-const RecipeDetails = ({ recipeDetails }) => {
+const RecipeDetails = ({ recipeDetails, setShoppingList, shoppingList }) => {
   // Assuming we need 15 minutes for each 3 ingredients
   const calculateTime = () => {
     const numIngredients = recipeDetails.ingredients.length
@@ -42,7 +42,11 @@ const RecipeDetails = ({ recipeDetails }) => {
       </Grid>
       <Grid item />
       <Grid item>
-        <RecipeIngredients ingredients={recipeDetails.ingredients} />
+        <RecipeIngredients
+          ingredients={recipeDetails.ingredients}
+          setShoppingList={setShoppingList}
+          shoppingList={shoppingList}
+        />
       </Grid>
       <Grid item>
         <RecipeFooter
@@ -64,7 +68,9 @@ RecipeDetails.propTypes = {
     social_rank: PropTypes.number.isRequired,
     publisher_url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired
-  })
+  }),
+  setShoppingList: PropTypes.func.isRequired,
+  shoppingList: PropTypes.array.isRequired
 }
 
 export default RecipeDetails

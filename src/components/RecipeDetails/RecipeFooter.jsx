@@ -35,7 +35,9 @@ const styles = makeStyles(theme => ({
 
 const RecipeFooter = ({ publisher, sourceUrl }) => {
   const classes = styles()
-
+  const handleOpenRecipeInstructions = () => {
+    window.open(sourceUrl, '_blank')
+  }
   return (
     <Grid
       className={classes.grid}
@@ -59,7 +61,10 @@ const RecipeFooter = ({ publisher, sourceUrl }) => {
         </Typography>
       </Grid>
       <Grid item>
-        <Button className={classes.button}>
+        <Button
+          className={classes.button}
+          onClick={handleOpenRecipeInstructions}
+        >
           <Typography variant="caption">Directions</Typography>
           <PlayArrow className={classes.arrow} />
         </Button>
