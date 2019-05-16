@@ -8,7 +8,7 @@ const styles = makeStyles(theme => ({
   grid: {
     backgroundColor: '#F2EFEE',
     padding: theme.spacing(2),
-    margin: theme.spacing(2, 0),
+    margin: theme.spacing(2, 0)
     // [theme.breakpoints.down('xs')]: {
     //   padding: 0
     // }
@@ -48,10 +48,14 @@ const styles = makeStyles(theme => ({
   }
 }))
 
-const RecipeIngredients = ({ ingredients }) => {
+const RecipeIngredients = ({ ingredients, shoppingList, setShoppingList }) => {
   const classes = styles()
   const firstHalfIngredients = ingredients.slice(0, ingredients.length / 2)
   const secondHalfIngredients = ingredients.slice(ingredients.length / 2)
+  const handleAddToShoppingList = () => {
+    const newShoppingList = new Set([...ingredients, ...shoppingList])
+    setShoppingList(Array.from(newShoppingList))
+  }
   return (
     <Grid
       container
@@ -80,7 +84,7 @@ const RecipeIngredients = ({ ingredients }) => {
         })}
       </Grid>
       <Grid item xs={6}>
-        <Button className={classes.button}>
+        <Button className={classes.button} onClick={handleAddToShoppingList}>
           <ShoppingCart className={classes.shoppingCart} />
           <Typography className={classes.typography} variant="caption">
             Add to shopping list
@@ -92,7 +96,9 @@ const RecipeIngredients = ({ ingredients }) => {
 }
 
 RecipeIngredients.propTypes = {
-  ingredients: PropTypes.array.isRequired
+  setShoppingList: PropTypes.func.isRequired,
+  ingredients: PropTypes.array.isRequired,
+  shoppingList: PropTypes.array.isRequired
 }
 
 export default RecipeIngredients

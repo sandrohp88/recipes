@@ -42,7 +42,7 @@ const styles = makeStyles(theme => ({
   },
   grid: {
     padding: theme.spacing(1),
-    margin: theme.spacing(0,1)
+    margin: theme.spacing(0, 1)
   }
 }))
 
