@@ -7,7 +7,7 @@ const getRecipes = async query => {
     let response
     if (process.env.NODE_ENV === 'development') {
       response = await fetch(`${searchUrl}${query}`)
-    } else if (process.env.NODE_ENV === 'production') {
+    } else {
       response = await fetch(`${searchUrl}${apiKey}&q=${query}`)
     }
     return handleResponse(response)
@@ -20,7 +20,7 @@ const getRecipeDetails = async id => {
     let response
     if (process.env.NODE_ENV === 'development') {
       response = await fetch(`${getUrl}${id}`)
-    } else if (process.env.NODE_ENV === 'production') {
+    } else {
       response = await fetch(`${getUrl}${apiKey}&rId=${id}`)
     }
     return handleResponse(response)
