@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   logo: {
     height: '2.5rem',
     flexGrow: 1,
-    display: 'block',
+    display: 'block'
     // [theme.breakpoints.down('xs')]: {
     //   display: 'none'
     // }
@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   inputInput: {
     padding: theme.spacing(1, 1, 1, 3),
     transition: theme.transitions.create('width'),
-    width: '100%',
+    width: '100%'
     // minWidth: 250
   },
   inputRoot: {
@@ -82,6 +82,7 @@ function Header({ setRecipes }) {
   }
   const handleMakeSearch = async () => {
     const recipes = await getRecipes(query)
+    console.log(recipes)
     setRecipes(recipes)
   }
   return (
