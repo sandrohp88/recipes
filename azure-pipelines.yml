@@ -20,3 +20,13 @@ steps:
       npm run test:ci
       npm run build
     displayName: 'npm install, test and build'
+
+
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'Free Trial(6620417f-b454-48e3-ab4d-176db7cf401e)'
+      appType: 'webAppLinux'
+      WebAppName: 'recipes-shp'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      RuntimeStack: 'NODE|10.14'
