@@ -81,8 +81,7 @@ function Header({ setRecipes }) {
     setQuery(event.target.value)
   }
   const handleMakeSearch = async () => {
-    const recipes = await getRecipes(query)
-    console.log(recipes)
+    const { recipes } = await getRecipes(query)
     setRecipes(recipes)
   }
   return (
